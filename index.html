@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Bang CV | Jasa Desain CV</title>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=yes">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+        <link rel="manifest" href="favicon/site.webmanifest">
+        <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#ffc40d">
+        <meta name="theme-color" content="#ffffff">
+
+        <!-- CSS-->
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- Tailwind -->
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@2.15.1/dist/full.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+
+    </head>
+
+    <body>
+
+        <!-- Hero -->
+        <div class="hidden lg:grid hero min-h-screen">
+            <div class="hero-content flex-col lg:flex-row-reverse">
+              <img src="img/poster.png" class="max-w-xl rounded-lg shadow-2xl" />
+              <div>
+                <h1 class="text-5xl font-bold">Selamat Datang!</h1>
+                <p class="py-6 pr-64 leading-8">Menyediakan beragam desain cv yang cantik dan elegan agar HRD tertarik dengan cv anda.</p>
+                <a id="button-list" href="#list"><button class="text-xs btn btn-primary tracking-widest">Lihat CV</button></a>
+              </div>
+            </div>
+        </div>
+
+        <!-- Container / Content -->
+        <section class="container m-auto 2xl:px-20 pt-8 pb-16 px-12" id="app">
+
+            <!-- The button to open modal -->
+            <div class="flex justify-center gap-8 flex-wrap">
+                <label for="my-modal-1" class="btn modal-button w-60 lg:ml-16 lg:btn lg:modal-button">Info</label>
+                <label for="my-modal-2" class="btn modal-button w-60 lg:btn lg:modal-button">Hasil Print</label>
+                <label for="my-modal-3" class="btn modal-button w-60 lg:btn lg:modal-button">Testimoni</label>
+            </div>
+
+            <!-- Put this part before </body> tag -->
+            <input type="checkbox" id="my-modal-1" class="modal-toggle" />
+            <div class="modal">
+                <div class="modal-box p-0 w-11/12 max-w-5xl">
+                    <img src="img/info.jpg" class="mb-8" alt="Refresh jika gambar tidak muncul">
+                    <img src="img/faq.jpg" class="mb-8" alt="Refresh jika gambar tidak muncul">
+                    <img src="img/faq-2.jpg" alt="Refresh jika gambar tidak muncul">
+                    <div class="modal-action flex justify-center px-8 py-4 mt-0 border-t-2">
+                        <label for="my-modal-1" class="btn bg-red-600 border-0 w-20">X</label>
+                    </div>
+                </div>
+            </div>
+            <input type="checkbox" id="my-modal-2" class="modal-toggle" />
+            <div class="modal">
+                <div class="modal-box p-0 w-11/12 max-w-5xl">
+                    <img src="img/hasil-print.jpg" alt="Refresh jika gambar tidak muncul">
+                    <div class="modal-action flex justify-center px-8 py-4 mt-0 border-t-2">
+                        <label for="my-modal-2" class="btn bg-red-600 border-0 w-20">X</label>
+                    </div>
+                </div>
+            </div>
+            <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+            <div class="modal">
+                <div class="modal-box p-0 w-11/12 max-w-5xl">
+                    <img src="img/testimoni.jpg" alt="Refresh jika gambar tidak muncul">
+                    <div class="modal-action flex justify-center px-8 py-4 mt-0 border-t-2">
+                        <label for="my-modal-3" class="btn bg-red-600 border-0 w-20">X</label>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="list" class="text-3xl font-bold mb-16 text-center mt-12">Desain CV</h2>
+ 
+            <div class="flex flex-wrap gap-12 justify-center">
+
+                <div class="card w-96 bg-base-100 shadow-md" v-for="isi in visibleCompanies" :key="isi.id">
+                    <figure><img :src="isi.image" class="shadow" alt="Refresh bila gambar tidak muncul" /></figure>
+                    <div class="card-body px-4 py-6 lg:p-8">
+                        <h2 class="card-title font-bold">Kode: {{ isi.judul }}</h2>
+                        <p class="mb-6">💰&nbsp;{{ isi.harga }}</p>
+                        <div class="card-actions">
+                            <!-- The button to open modal -->
+                            <label :for="isi.modal" class="btn modal-button">Lihat</label>
+
+                            <!-- Put this part before </body> tag -->
+                            <input type="checkbox" :id="isi.modal" class="modal-toggle" />
+                            <div class="modal sm:modal-middle">
+                                <div class="modal-box p-0 w-11/12 max-w-5xl">
+                                    <div class="hidden lg:flex lg:justify-center modal-action px-8 py-4 mt-0 border-t-2">
+                                        <label :for="isi.modal" class="btn bg-red-600 border-0 w-20">X</label>
+                                    </div>
+                                    <img :src="isi.image" alt="Refresh jika gambar tidak muncul">
+                                    <div class="modal-action flex justify-center px-8 py-4 mt-0 border-t-2">
+                                        <label :for="isi.modal" class="btn bg-red-600 border-0 w-20">X</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <a :href="isi.link" target="_blank" class="btn btn-primary bg-warning border-0 tracking-widest">Beli!</a>
+                            <!-- <p class="text-red-500 text-xs mt-4">Refresh bila gambar tidak muncul</p> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary my-20" @click="companiesVisible += step" v-if="companiesVisible < companies.length">Lebih banyak...</button>
+                
+            </div>
+        </section>
+
+        <!-- Vue JS -->
+        <script src="vue.js"></script>
+        <script src="isi.js"></script>
+        
+    </body>
+</html>
