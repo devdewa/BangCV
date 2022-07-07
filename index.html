@@ -109,8 +109,9 @@
                     </div>
                 </div>
                 
-                <button class="btn btn-primary my-20" @click="companiesVisible += step" v-if="companiesVisible < companies.length">Lebih banyak...</button>
-                
+                <div class="w-full flex justify-center">
+                    <button class="btn btn-primary my-20" @click="companiesVisible += step" v-if="companiesVisible < companies.length">Lebih banyak...</button>
+                </div>
             </div>
         </section>
 
