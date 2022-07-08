@@ -3,9 +3,9 @@
 * {
     margin: 0;
     padding: 0;
+    line-height: 1.5;
     box-sizing: border-box;
     font-family: 'Montserrat', Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.5;
 }
 
 html, body {
